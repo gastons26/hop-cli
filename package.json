@@ -16,14 +16,15 @@
 	"author": "gatis.lapsins",
 	"license": "ISC",
 	"repository": {
-	  "type": "git",
-	  "url": "git://github.com/gastons26/hop-cli.git"
+		"type": "git",
+		"url": "git://github.com/gastons26/hop-cli.git"
 	},
 	"dependencies": {
 		"chalk": "^2.4.0",
 		"co": "^4.6.0",
 		"co-prompt": "^1.0.0",
 		"commander": "^2.15.1",
+		"copy-dir": "^0.3.0",
 		"find-parent-dir": "^0.3.0",
 		"fs-finder": "^1.8.1",
 		"fs-path": "0.0.24"
