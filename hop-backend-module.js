@@ -12,9 +12,6 @@ var copydir = require('copy-dir');
 var templateModuleDirectory = 'templates\\backend\\module';
 
 exports.CreateBackendModule = function(templatePath, projectName, projectPath) {
-  //console.log(chalk.bgGreen.bold.white.underline(templatePath));
-  //console.log(chalk.bgGreen.bold.white.underline(projectName));
-  //console.log(chalk.bgGreen.bold.white.underline(projectPath));
 
   program
     .option('-m, --module <module>', 'New module name')
