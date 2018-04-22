@@ -40,7 +40,6 @@ exports.getProcessedTemplate = function(templatePath, projectName) {
 				var projectModuleLowerCase = moduleName.toLowerCase();
 
 				fs.readFile(filePathToServiceTemplate, 'utf8', function (err, serviceTemplate) {
-          console.log(serviceTemplate);
 					if (err) {
 						console.log(chalk.red(err));
 						process.exit(0);

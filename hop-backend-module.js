@@ -17,7 +17,7 @@ exports.CreateBackendModule = function(templatePath, projectName, projectPath) {
   //console.log(chalk.bgGreen.bold.white.underline(projectPath));
 
   program
-    .option('-m, --module <module>', 'project module name without H2O')
+    .option('-m, --module <module>', 'New module name')
     .action(function() {
       co(function *() {
 
@@ -27,15 +27,16 @@ exports.CreateBackendModule = function(templatePath, projectName, projectPath) {
           process.exit(0);
         }
 
-        var moduleName = yield prompt(`module: `);
+        var moduleName = yield prompt(`module: (${chalk.magenta(projectName)})`);
 
         if(moduleName.trim() === "") {
           console.error(chalk.bgRed.white.underline("Module Name is required"));
           process.exit(0);
         }
 
-        var newModulePath = projectPath + `\\${moduleName}`;
+        var newModulePath = `${projectPath}\\${moduleName}`;
         var moduleTemplateDirectory = templatePath + templateModuleDirectory;
+
 
         copyAndRenameFiles(moduleTemplateDirectory, newModulePath, moduleName);
 
@@ -72,43 +73,16 @@ function copyAndRenameFiles(fromDir, toDirm, newModuleName) {
 }
 
 function replaceTemplateVairablesInFiles(newModelPath, replaceValues) {
-  console.log(newModelPath);
-  fs.readFile('C:\\WORK\\H2O.App.MyTest\\MyModule\\Controllers\\MyModuleController.cs', 'utf8', function (err, serviceTemplate) {
-    console.log(serviceTemplate);
-  });
 
-  Finder.from(newModelPath).findFiles().forEach(filePath => {
-    console.log(filePath);
+    Finder.from(newModelPath).findFiles().forEach(filePath => {
 
-    fs.readFile(filePath, 'utf8', function(err, fileContent) {
-      console.log(fileContent)
-    });
-/*
-    fs.readFile(filePath, 'utf8', function (err, fileContent) {
-      console.log(err, fileContent);
-      if (err) {
-        console.log(chalk.red(err));
-        process.exit(0);
-        return;
-      }
-      var processedTemplate = fileContent;
-      Object.keys(replaceValues).forEach(key => {
-        console.log(key);
-        processedTemplate = processedTemplate.replace(new RegExp(key,'g'), replaceValues[key]);
-      });
+        var processedTemplate = fs.readFileSync(filePath, 'utf8');
+        Object.keys(replaceValues).forEach(key => {
+          processedTemplate = processedTemplate.replace(new RegExp(key,'g'), replaceValues[key]);
+        });
 
-      console.log(processedTemplate);
+        console.log(processedTemplate);
 
-      fsPath.writeFileSync(filePath, processedTemplate, function(err){
-        if(err) {
-          console.log(chalk.red(err));
-          process.exit(0);
-        } else {
-          console.log(chalk.green("Done!"), chalk.bgGreen(process.cwd() + '\\' + newFileName));
-          process.exit(1);
-        }
-      });
-    });
-    */
+        fsPath.writeFileSync(filePath, processedTemplate);
   });
 }
