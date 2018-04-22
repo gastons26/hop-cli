@@ -1,0 +1,31 @@
+{
+	"name": "hop-cli",
+	"version": "1.0.0",
+	"description": "A command-line tool for generation hop frontend and backend templates",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"preferGlobal": true,
+	"bin": {
+		"hop": "./index.js"
+	},
+	"keywords": [
+		"hop",
+		"cli"
+	],
+	"author": "gatis.lapsins",
+	"license": "ISC",
+	"repository": {
+	  "type": "git",
+	  "url": "git://github.com/gastons26/hop-cli.git"
+	},
+	"dependencies": {
+		"chalk": "^2.4.0",
+		"co": "^4.6.0",
+		"co-prompt": "^1.0.0",
+		"commander": "^2.15.1",
+		"find-parent-dir": "^0.3.0",
+		"fs-finder": "^1.8.1",
+		"fs-path": "0.0.24"
+	}
+}
