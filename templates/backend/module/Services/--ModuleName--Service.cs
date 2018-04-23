@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using --ProjectName--.--ModuleName--.Exceptions;
-using --ProjectName--.--ModuleName--.i18n;
 using --ProjectName--.--ModuleName--.Interfaces;
 using H2OMicroService.Config.Logger.Interfaces;
 using H2OMicroService.Ftg.Interfaces;

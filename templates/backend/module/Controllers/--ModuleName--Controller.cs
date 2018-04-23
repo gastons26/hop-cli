@@ -5,7 +5,6 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
 using --ProjectName--.App;
-using --ProjectName--.--ModuleName--.i18n;
 using --ProjectName--.--ModuleName--.Interfaces;
 using H2OMicroService.App;
 using H2OMicroService.Components.Attributes;
@@ -49,7 +48,7 @@ namespace --ProjectName--.--ModuleName--.Controllers
             catch (Exception e)
             {
                 _logger.App().Error(e.Message, e);
-                return BadRequest(Res--ModuleName--.FailedToGetList);
+                return BadRequest("TODO - need to make Resx file");
             }
         }
     }

@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using --ProjectName--.--ModuleName--.Exceptions;
-using --ProjectName--.--ModuleName--.i18n;
 using --ProjectName--.--ModuleName--.Interfaces;
 using H2OMicroService.Components.AppFtg.List;
 using H2OMicroService.Components.WebClient.Interfaces;
@@ -43,7 +42,7 @@ namespace --ProjectName--.--ModuleName--.Repositories
             if (response.IsSystemError)
             {
                 _logger.App().Error($"Failed to process : {query.Url}, error: {response.ErrorMessage}");
-                throw new RepositoryException(Res--ModuleName--.FailedToGetList);
+                throw new RepositoryException("TODO - need to make Resx file");
             }
             _logger.DataIntegration().Warn($"Failed to process : {query.Url}, error: {response.ErrorMessage} {response.RestResponse}");
             throw new RepositoryException(response.ErrorMessage);
