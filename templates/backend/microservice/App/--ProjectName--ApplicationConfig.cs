@@ -4,7 +4,7 @@ using H2OMicroService.App.Models;
 
 namespace --ProjectFullName--.App
 {
-    public class BusinessTripApplicationConfig : IBusinessTripApplicationConfig
+    public class --ProjectName--ApplicationConfig : I--ProjectName--ApplicationConfig
     {
         public string H2OGateWay => Properties.Settings.Default.H2OGateWay;
         public string H2OApplicationHost => Properties.Settings.Default.H2OApplicationHost;
