@@ -16,18 +16,23 @@ var projectName = projectHomeDir.replace(/\\$/, '').split('\\').pop().split('.')
 const Commands = {
 	NG_SERVICE: "service",
 	NG_MODULE: "module",
-	BACKEND_MODULE: "backModule"
+	BACKEND_MODULE: "backModule",
+	BACKEND_MICROSERVICE: "microservice"
 }
 
 switch(userArgs[2]) {
 	case Commands.NG_SERVICE:
-		var hopFrontService = require('./hop-front-service');
+		var hopFrontService = require('./scripts/front/hop-front-service');
 		hopFrontService.getProcessedTemplate(directiveTemplate, projectName);
 		break;
   case Commands.BACKEND_MODULE:
-    var hopBackendModule = require('./hop-backend-module');
+    var hopBackendModule = require('./scripts/backend/hop-backend-module');
     hopBackendModule.CreateBackendModule(directiveTemplate, projectFullName, projectHomeDir);
     break;
+	case Commands.BACKEND_MICROSERVICE:
+    var hopBackendModule = require('./scripts/backend/hop-backend-microservice');
+    hopBackendModule.CreateBackendModule(directiveTemplate, projectFullName, projectHomeDir);
+		break;
 	default:
 	console.error(chalk.red.bold("Operations is not allowed"));
 }

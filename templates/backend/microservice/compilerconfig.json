@@ -1,0 +1,11 @@
+﻿[
+  {
+    "inputFile": "Angular/--ProjectName--.tp.js",
+    "outputFile": "Angular/--ProjectName--.tp.es5.js"
+  },
+  {
+    "outputFile": "Angular/--ProjectName--.css",
+    "inputFile": "Angular/scss/--ProjectName--.scss",
+    "sourceMap": false
+  }
+]

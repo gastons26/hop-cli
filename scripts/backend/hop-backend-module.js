@@ -1,4 +1,4 @@
-var common = require("./common");
+var common = require("../../common");
 var fs = require('fs');
 var fsPath = require('fs-path');
 var Finder = require('fs-finder');
