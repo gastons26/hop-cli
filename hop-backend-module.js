@@ -71,15 +71,20 @@ function copyAndRenameFiles(fromDir, toDirm, newModuleName) {
 
 function replaceTemplateVairablesInFiles(newModelPath, replaceValues) {
 
+  try {
     Finder.from(newModelPath).findFiles().forEach(filePath => {
 
-        var processedTemplate = fs.readFileSync(filePath, 'utf8');
-        Object.keys(replaceValues).forEach(key => {
-          processedTemplate = processedTemplate.replace(new RegExp(key,'g'), replaceValues[key]);
-        });
+      var processedTemplate = fs.readFileSync(filePath, 'utf8');
+      Object.keys(replaceValues).forEach(key => {
+        processedTemplate = processedTemplate.replace(new RegExp(key,'g'), replaceValues[key]);
+      });
 
-        console.log(processedTemplate);
+      fsPath.writeFileSync(filePath, processedTemplate);
 
-        fsPath.writeFileSync(filePath, processedTemplate);
-  });
+      console.log(chalk.bgGreen(`Done: ${filePath}`));
+    });
+  } catch (ex) {
+    console.log(chalk.bgRed(ex));
+    process.exit(0);
+  }
 }
