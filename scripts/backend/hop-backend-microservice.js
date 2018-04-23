@@ -86,10 +86,18 @@ function copyAndRenameFiles(fromDir, toDirm, renamePatternObject) {
   });
 }
 
-function replaceTemplateVairablesInFiles(newModelPath, replaceValues) {
+function replaceTemplateVairablesInFiles(projectPath, replaceValues) {
 
   try {
-    Finder.from(newModelPath).findFiles().forEach(filePath => {
+  
+	var excludeFiles = Finder.from(projectPath + '\\bin').findFiles();
+	excludeFiles = excludeFiles.concat(Finder.from(projectPath + '\\obj').findFiles());
+	excludeFiles = excludeFiles.concat(Finder.from(projectPath + '\\Properties').findFiles());
+		
+    Finder.from(projectPath).findFiles().forEach(filePath => {
+	  if(excludeFiles.indexOf(filePath) > -1) {
+        return;
+	  }
 
       var processedTemplate = fs.readFileSync(filePath, 'utf8');
       Object.keys(replaceValues).forEach(key => {
